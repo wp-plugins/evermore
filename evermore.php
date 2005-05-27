@@ -7,6 +7,8 @@ Version: 1.0
 Author: Bennett McElwee
 Author URI: http://www.thunderguy.com/semicolon/
 
+$Revision$
+
 Copyright (C) 2005 Bennett McElwee
 
 This program is free software; you can redistribute it and/or
