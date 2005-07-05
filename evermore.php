@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Evermore
-Plugin URI: http://www.thunderguy.com/semicolon/evermore-wordpress-plugin/
+Plugin URI: http://www.thunderguy.com/semicolon/wordpress/evermore-wordpress-plugin/
 Description: Abbreviate all posts when viewed on multiple post pages. This makes all posts behave as if there is a "&lt;!--more--&gt;" after the first paragraph.
 Version: 1.0
 Author: Bennett McElwee
