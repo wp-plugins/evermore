@@ -77,9 +77,11 @@ function tguy_em_addmore($post_content) {
 		// Get the first paragraph including all surrounding whitespace.
 		// First paragraph is the first closing block tag or the first
 		// double newline, whichever comes first.
+		// Important to add a newline after the more, to avoid WP adding
+		// a <br> after the more which leaves a spurious blank line.
 		 if (preg_match('!^(\s*.*?(?:</(?:p|pre|blockquote|div|ol|ul)>|(?:\r\n|\r|\n){2})\s*)\S!', $post_content, $matches)) {
 			$firstPara = $matches[1];
-			return $firstPara . '<!--more-->' . substr($post_content, strlen($firstPara));
+			return $firstPara . "<!--more-->\n" . substr($post_content, strlen($firstPara));
 		}
 	}
 	return $post_content;
