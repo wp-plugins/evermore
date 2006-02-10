@@ -65,7 +65,7 @@ function tguy_em_addmore($post_content) {
 		// double newline, whichever comes first.
 		// Important to add 2 newlines after the more, to avoid WP adding
 		// a <br> after the more which leaves a spurious blank line.
-		 if (preg_match('!^(\s*.*?(?:</(?:p|pre|blockquote|div|ol|ul)>|(?:\r\n\r\n|\r\r|\n\n))\s*)\S!', $post_content, $matches)) {
+		 if (preg_match('!^(\s*.*?(?:</(?:p|pre|blockquote|div|ol|ul)>|(?:\r\n\r\n|\r\r|\n\n))\s*)\S!s', $post_content, $matches)) {
 			$firstPara = $matches[1];
 			return $firstPara . "<!--more-->\n\n" . substr($post_content, strlen($firstPara));
 		}
