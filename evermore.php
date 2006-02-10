@@ -3,7 +3,7 @@
 Plugin Name: Evermore
 Plugin URI: http://www.thunderguy.com/semicolon/wordpress/evermore-wordpress-plugin/
 Description: Abbreviate all posts when viewed on multiple post pages. This makes all posts behave as if there is a "&lt;!--more--&gt;" after the first paragraph.
-Version: 1.0
+Version: 1.0.1
 Author: Bennett McElwee
 Author URI: http://www.thunderguy.com/semicolon/
 
@@ -79,7 +79,7 @@ function tguy_em_addmore($post_content) {
 		// double newline, whichever comes first.
 		// Important to add 2 newlines after the more, to avoid WP adding
 		// a <br> after the more which leaves a spurious blank line.
-		 if (preg_match('!^(\s*.*?(?:</(?:p|pre|blockquote|div|ol|ul)>|(?:\r\n|\r|\n){2})\s*)\S!', $post_content, $matches)) {
+		 if (preg_match('!^(\s*.*?(?:</(?:p|pre|blockquote|div|ol|ul)>|(?:\r\n\r\n|\r\r|\n\n))\s*)\S!', $post_content, $matches)) {
 			$firstPara = $matches[1];
 			return $firstPara . "<!--more-->\n\n" . substr($post_content, strlen($firstPara));
 		}
