@@ -7,9 +7,21 @@ Version: 1.0.1
 Author: Bennett McElwee
 Author URI: http://www.thunderguy.com/semicolon/
 
-$Revision$
+INSTRUCTIONS
 
-Copyright (C) 2005 Bennett McElwee
+1. Copy this file into the plugins directory in your WordPress installation (wp-content/plugins).
+2. Log in to WordPress administration. Go to the Plugins page and Activate this plugin.
+
+Evermore automatically abbreviates all posts when they appear on a multiple-post page such as the main blog page. It has the same effect as putting  <!--more--> after the first paragraph of every post. All formatting and HTML tags are preserved in the abbreviated post.
+
+If the post already has a <!--more--> in it, then this plugin does nothing to it and the existing <!--more--> will behave as usual.
+
+If you want to disable the plugin for any specific post, then include the codeword <!--nevermore--> in the post. This won't show up in the post, but it will prevent the post from being abbreviated by Evermore. 
+
+Tested with PHP 4.3.8, WordPress 1.5 and 2.0.
+
+
+Copyright (C) 2005 Bennett McElwee (bennett at thunderguy dotcom)
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -22,35 +34,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with this program; if not, write to the
-Free Software Foundation, Inc.,
-51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-
-The GNU General Public License is also available at
-http://www.gnu.org/copyleft/gpl.html
-
-Bennett McElwee, bennett at thunderguy dotcom
-*/ 
-
-/*
-INSTALLATION
-
-1. Copy this file into the plugins directory in your WordPress installation (wp-content/plugins).
-
-2. Log in to WordPress Admin. Go to the Plugins page and click Activate for this plugin.
-
-USAGE
-
-Evermore automatically abbreviates all posts when they appear on a multiple-post page such as the main blog page. It has the same effect as putting  <!--more--> after the first paragraph of every post. All formatting and HTML tags are preserved in the abbreviated post.
-
-If the post already has a <!--more--> in it, then this plugin does nothing to it and the existing <!--more--> will behave as usual.
-
-If you want to disable the plugin for any specific post, then include the codeword <!--nevermore--> in the post. This won't show up in the post, but it will prevent the post from being abbreviated by Evermore. 
-
-DEVELOPMENT NOTES
-
-All globals begin with "tguy_em_" (for Thunderguy Evermore)
-Tested with PHP 4.3.8, WordPress 1.5.
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+The license is also available at http://www.gnu.org/copyleft/gpl.html
 */
 
 // Add the "more" link immediately after reading the post from the database
