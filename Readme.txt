@@ -1,14 +1,26 @@
 === Evermore ===
-
-Tags: extract,more,abbreviate,short
 Contributors: bennettmcelwee
+Tags: extract,more,abbreviate,short
+Requires at least: 1.5
+Tested up to: 2.2
+Stable tag: 2.2
 
-Evermore automatically abbreviates all posts when they appear on a multiple-post page such as the main blog page. It has the same effect as putting  <!--more--> after the first paragraph of every post. All formatting and HTML tags are preserved in the abbreviated post.
+Evermore automatically abbreviates all posts when they appear on a multiple-post page such as the main blog page.
 
-If the post already has a <!--more--> in it, then this plugin does nothing to it and the existing <!--more--> will behave as usual.
+== Description ==
 
-If you want to disable the plugin for any specific post, then include the codeword <!--nevermore--> in the post. This won't show up in the post, but it will prevent the post from being abbreviated by Evermore. 
+Evermore automatically abbreviates all posts when they appear on a multiple-post page such as the main blog page. It has the same effect as putting &lt;!--more--&gt; after the first paragraph of every post. All formatting and HTML tags are preserved in the abbreviated post.
 
+If the post already has a &lt;!--more--&gt; in it, then this plugin does nothing to it and the existing &lt;!--more--&gt; will behave as usual.
+
+If you want to disable the plugin for any specific post, then include the codeword &lt;!--nevermore--&gt; in the post. This won't show up in the post, but it will prevent the post from being abbreviated by Evermore. 
+
+To change the length of the preview that Evermore creates, log in to your WordPress administration console and go to Options, then click Evermore. You will see the Evermore configuration screen where you can set the following options.
+
+* The number of paragraphs each preview should contain
+* The minimum length of the preview
+  Sometimes, the first paragraph of a post can be very short (just a short sentence, or a picture). This option allows you to add extra paragraphs to make the preview a more reasonable length.
+* Where to put the “read more” link — either at the end of the last paragraph, or on a new line by itself
 
 == Installation ==
 
@@ -25,13 +37,12 @@ The main page of a blog can often be too full. By default, WordPress displays th
 
 = I want one of my posts to appear in full! =
 
-Include the magic word <!--nevermore--> in any post and Evermore will ignore that post. The magic word won'
-t appear when people view your post, but Evermore will see it and obey.
+Include the magic word &lt;!--nevermore--&gt; in any post and Evermore will ignore that post. The magic word won't appear when people view your post, but Evermore will see it and obey.
 
 = I've changed my mind. How can I get my posts back the way they were? =
 
 Just go to your WordPress Admin screen and disable the Evermore plugin. Everything will be back as it was.
 
-= Why not just add <!--more--> to my posts? =
+= Why not just add &lt;!--more--&gt; to my posts? =
 
-You can manually add <!--more--> to all your posts. This has exactly the same effect as Evermore. But with Evermore, you can turn the abbreviations on or off with a few clicks just by enabling or disabling the plugin. With the manual way, you have to manually go in and edit each post.
+You can manually add &lt;!--more--&gt; to all your posts. This has exactly the same effect as Evermore. But with Evermore, you can turn the abbreviations on or off with a few clicks just by enabling or disabling the plugin. With the manual way, you have to manually go in and edit each post.
