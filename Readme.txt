@@ -2,7 +2,7 @@
 Contributors: bennettmcelwee
 Tags: extract,more,abbreviate,short
 Requires at least: 1.5
-Tested up to: 2.2
+Tested up to: 2.5
 Stable tag: 2.2
 
 Evermore automatically abbreviates all posts when they appear on a multiple-post page such as the main blog page.
