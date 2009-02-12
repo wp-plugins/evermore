@@ -224,50 +224,48 @@ function tguy_em_options_page() {
 			?>
 			<input type="hidden" name="submitted" value="1" />
 				
-			<fieldset class="options">
-			<legend>Settings</legend>
-				<ul>
-					<li>
-					<label for="em_paras_to_skip">
-						Create previews containing the first
-						<input type="text" id="em_paras_to_skip" name="em_paras_to_skip"
-							size="2" maxlength="3"
-							value="<?php echo $options['em_paras_to_skip']; ?>" />
-						paragraphs of each post
-					</label>
-					</li>
-					<li>
-					<label for="em_min_chars_to_skip">
-						Ensure the preview is at least
-						<input type="text" id="em_min_chars_to_skip" name="em_min_chars_to_skip"
-							size="4" maxlength="4"
-							value="<?php echo $options['em_min_chars_to_skip']; ?>" />
-						characters long
-					</label>
-					</li>
-					<li>
-					Add a "read more" link to the full post<br />
-					<label for="em_link_on_new_para">
-						<input type="checkbox" id="em_link_on_new_para" name="em_link_on_new_para" <?php echo ($options['em_link_on_new_para']==true?"checked=\"checked\"":"") ?> />
-						Show the "Read more" link on a line by itself
-					</label><br />
-						Note that the actual text appearing on the link depends on your WordPress theme.
-					</li>
-				</ul>
-				<script type="text/javascript">
-				<!--
-				function tguy_em_set_defaults() {
-					document.getElementById("em_paras_to_skip").value = 1;
-					document.getElementById("em_min_chars_to_skip").value = 100;
-					document.getElementById("em_link_on_new_para").checked = true;
-				}
-				document.write('<p class="submit"><input type="submit" class="button-secondary" name="Defaults" value="Use Defaults" onclick="tguy_em_set_defaults(); return false;" /></p>');
-				//-->
-				</script>
-				<noscript>
-				<p><strong>Defaults:</strong> Previews contain first 1 paragraph; count first 100 characters in first paragraph; show "Read more" on a line by itself.</p>
-				</noscript>
-			</fieldset>
+			<h3>Settings</h3>
+			<ul>
+				<li>
+				<label for="em_paras_to_skip">
+					Create previews containing the first
+					<input type="text" id="em_paras_to_skip" name="em_paras_to_skip"
+						size="2" maxlength="3"
+						value="<?php echo $options['em_paras_to_skip']; ?>" />
+					paragraphs of each post
+				</label>
+				</li>
+				<li>
+				<label for="em_min_chars_to_skip">
+					Ensure the preview is at least
+					<input type="text" id="em_min_chars_to_skip" name="em_min_chars_to_skip"
+						size="4" maxlength="4"
+						value="<?php echo $options['em_min_chars_to_skip']; ?>" />
+					characters long
+				</label>
+				</li>
+				<li>
+				Add a "read more" link to the full post<br />
+				<label for="em_link_on_new_para">
+					<input type="checkbox" id="em_link_on_new_para" name="em_link_on_new_para" <?php echo ($options['em_link_on_new_para']==true?"checked=\"checked\"":"") ?> />
+					Show the "Read more" link on a line by itself
+				</label><br />
+					Note that the actual text appearing on the link depends on your WordPress theme.
+				</li>
+			</ul>
+			<script type="text/javascript">
+			<!--
+			function tguy_em_set_defaults() {
+				document.getElementById("em_paras_to_skip").value = 1;
+				document.getElementById("em_min_chars_to_skip").value = 100;
+				document.getElementById("em_link_on_new_para").checked = true;
+			}
+			document.write('<p class="submit"><input type="submit" class="button-secondary" name="Defaults" value="Use Defaults" onclick="tguy_em_set_defaults(); return false;" /></p>');
+			//-->
+			</script>
+			<noscript>
+			<p><strong>Defaults:</strong> Previews contain first 1 paragraph; count first 100 characters in first paragraph; show "Read more" on a line by itself.</p>
+			</noscript>
 			<p class="submit">
 				<input name="Submit" class="button-primary" value="Save Changes" type="submit">
 			</p>
@@ -275,7 +273,3 @@ function tguy_em_options_page() {
 	</div>
 <?php
 }
-
-
-
-?>
