@@ -1,9 +1,10 @@
 === Evermore ===
 Contributors: bennettmcelwee
 Tags: extract,more,abbreviate,short
+Donate link: http://www.thunderguy.com/semicolon/wordpress/evermore-wordpress-plugin/
 Requires at least: 1.5
 Tested up to: 2.7
-Stable tag: 2.2
+Stable tag: 2.3
 
 Evermore automatically abbreviates all posts when they appear on a multiple-post page such as the main blog page.
 
@@ -24,7 +25,7 @@ To change the length of the preview that Evermore creates, log in to your WordPr
 == Installation ==
 
 1. Copy evermore.php into your WordPress plugins directory (wp-content/plugins).
-2. Log in to WordPress Admin. Go to the Plugins page and click Activate for Evermore
+2. Log in to WordPress Admin. Go to the Plugins section and click Activate for Evermore
 
 
 == Frequently Asked Questions ==
