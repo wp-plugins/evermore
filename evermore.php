@@ -3,13 +3,13 @@
 Plugin Name: Evermore
 Plugin URI: http://www.thunderguy.com/semicolon/wordpress/evermore-wordpress-plugin/
 Description: Abbreviate all posts when viewed on multiple post pages. This makes all posts behave as if there is a "&lt;!--more--&gt;" at an appropriate spot inside the content.
-Version: 2.2
+Version: 2.3
 Author: Bennett McElwee
 Author URI: http://www.thunderguy.com/semicolon/
 
 $Revision$
 
-Copyright (C) 2005-06 Bennett McElwee
+Copyright (C) 2005-09 Bennett McElwee
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -36,8 +36,8 @@ Bennett McElwee, bennett at thunderguy dotcom
 INSTALLATION
 
 1. Copy this file into the plugins directory in your WordPress installation (wp-content/plugins).
-2. Log in to WordPress Admin. Go to the Plugins page and click Activate for this plugin.
-3. If desired, go to the Options page, click Evermore and adjust settings.
+2. Log in to WordPress Admin. Go to the Plugins section and click Activate for this plugin.
+3. If desired, go to the Settings section, click Evermore and adjust settings.
 
 USAGE
 
@@ -50,7 +50,7 @@ If you want to disable the plugin for any specific post, then include the codewo
 DEVELOPMENT NOTES
 
 All globals begin with "tguy_em_" (for Thunderguy Evermore)
-Tested with PHP 4.4.x, WordPress 1.5 and 2.
+Tested with PHP 4.4.x, WordPress 1.5 to 2.7.1.
 */
 
 if (!is_plugin_page()) :
@@ -196,12 +196,11 @@ endif; // if (!is_plugin_page())
 function tguy_em_options_page() {
 	// See if user has submitted form
 	if ( isset($_POST['submitted']) ) {
+		check_admin_referer('evermore-update-options_all');
 		$options = array();
 		$options['em_min_chars_to_skip'] = intval($_POST['em_min_chars_to_skip']);
 		$options['em_paras_to_skip'] = intval($_POST['em_paras_to_skip']);
 		$options['em_link_on_new_para'] = (bool)($_POST['em_link_on_new_para']);
-
-		// Remember to put all the other options into the array or they'll get lost!
 		update_option('tguy_more_evermore', $options);
 		echo '<div id="message" class="updated fade"><p><strong>Plugin settings saved.</strong></p></div>';
 	}
@@ -217,59 +216,60 @@ function tguy_em_options_page() {
 		The preview also appears on the archive and category pages.
 		For each post, the first few paragraphs are shown along with a "read more" link to read the full post.</p>
 		
-		<form name="evermore" action="<?php echo $action_url; ?>" method="post">
+		<form name="evermore" action="" method="post">
+			<?php
+			if (function_exists('wp_nonce_field')) {
+				wp_nonce_field('evermore-update-options_all');
+			}
+			?>
 			<input type="hidden" name="submitted" value="1" />
 				
-			<fieldset class="options">
-			<legend>Settings</legend>
-				<ul>
-					<li>
-					<label for="em_paras_to_skip">
-						Create previews containing the first
-						<input type="text" id="em_paras_to_skip" name="em_paras_to_skip"
-							size="2" maxlength="3"
-							value="<?php echo $options['em_paras_to_skip']; ?>" />
-						paragraphs of each post
-					</label>
-					</li>
-					<li>
-					<label for="em_min_chars_to_skip">
-						Ensure the preview is at least
-						<input type="text" id="em_min_chars_to_skip" name="em_min_chars_to_skip"
-							size="4" maxlength="4"
-							value="<?php echo $options['em_min_chars_to_skip']; ?>" />
-						characters long
-					</label>
-					</li>
-					<li>
-					Add a "read more" link to the full post<br />
-					<label for="em_link_on_new_para">
-						<input type="checkbox" id="em_link_on_new_para" name="em_link_on_new_para" <?php echo ($options['em_link_on_new_para']==true?"checked=\"checked\"":"") ?> />
-						Show the "Read more" link on a line by itself
-					</label><br />
-						Note that the actual text appearing on the link depends on your WordPress theme.
-					</li>
-				</ul>
-				<script type="text/javascript">
-				<!--
-				function tguy_em_set_defaults() {
-					document.getElementById("em_paras_to_skip").value = 1;
-					document.getElementById("em_min_chars_to_skip").value = 100;
-					document.getElementById("em_link_on_new_para").checked = true;
-				}
-				document.write('<p><input type="button" name="Defaults" value="Use Defaults" onclick="tguy_em_set_defaults(); return false;" /></p>');
-				//-->
-				</script>
-				<noscript>
-				<p><strong>Defaults:</strong> Previews contain first 1 paragraph; count first 100 characters in first paragraph; show "Read more" on a line by itself.</p>
-				</noscript>
-			</fieldset>
-			<p class="submit"><input type="submit" name="Submit" value="Save changes &raquo;" /></p>
+			<h3>Settings</h3>
+			<ul>
+				<li>
+				<label for="em_paras_to_skip">
+					Create previews containing the first
+					<input type="text" id="em_paras_to_skip" name="em_paras_to_skip"
+						size="2" maxlength="3"
+						value="<?php echo $options['em_paras_to_skip']; ?>" />
+					paragraphs of each post
+				</label>
+				</li>
+				<li>
+				<label for="em_min_chars_to_skip">
+					Ensure the preview is at least
+					<input type="text" id="em_min_chars_to_skip" name="em_min_chars_to_skip"
+						size="4" maxlength="4"
+						value="<?php echo $options['em_min_chars_to_skip']; ?>" />
+					characters long
+				</label>
+				</li>
+				<li>
+				Add a "read more" link to the full post<br />
+				<label for="em_link_on_new_para">
+					<input type="checkbox" id="em_link_on_new_para" name="em_link_on_new_para" <?php echo ($options['em_link_on_new_para']==true?"checked=\"checked\"":"") ?> />
+					Show the "Read more" link on a line by itself
+				</label><br />
+					Note that the actual text appearing on the link depends on your WordPress theme.
+				</li>
+			</ul>
+			<script type="text/javascript">
+			<!--
+			function tguy_em_set_defaults() {
+				document.getElementById("em_paras_to_skip").value = 1;
+				document.getElementById("em_min_chars_to_skip").value = 100;
+				document.getElementById("em_link_on_new_para").checked = true;
+			}
+			document.write('<p class="submit"><input type="submit" class="button-secondary" name="Defaults" value="Use Defaults" onclick="tguy_em_set_defaults(); return false;" /></p>');
+			//-->
+			</script>
+			<noscript>
+			<p><strong>Defaults:</strong> Previews contain first 1 paragraph; count first 100 characters in first paragraph; show "Read more" on a line by itself.</p>
+			</noscript>
+			<p class="submit">
+				<input name="Submit" class="button-primary" value="Save Changes" type="submit">
+			</p>
 		</form>
 	</div>
 <?php
 }
-
-
-
-?>
