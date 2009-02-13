@@ -3,7 +3,7 @@ Contributors: bennettmcelwee
 Tags: extract,more,abbreviate,short
 Requires at least: 1.5
 Tested up to: 2.7
-Stable tag: 2.2
+Stable tag: 2.3
 
 Evermore automatically abbreviates all posts when they appear on a multiple-post page such as the main blog page.
 
@@ -15,11 +15,11 @@ If the post already has a &lt;!--more--&gt; in it, then this plugin does nothing
 
 If you want to disable the plugin for any specific post, then include the codeword &lt;!--nevermore--&gt; in the post. This won't show up in the post, but it will prevent the post from being abbreviated by Evermore. 
 
-To change the length of the preview that Evermore creates, log in to your WordPress administration console and go to Options, then click Evermore. You will see the Evermore configuration screen where you can set the following options.
+To change the length of the preview that Evermore creates, log in to your WordPress administration console and go to Settings, then click Evermore. You will see the Evermore configuration screen where you can set the following options.
 
 * The number of paragraphs each preview should contain
 * The minimum length of the preview. Sometimes, the first paragraph of a post can be very short (just a short sentence, or a picture). This option allows you to add extra paragraphs to make the preview a more reasonable length.
-* Where to put the "read more" link - either at the end of the last paragraph, or on a new line by itself
+* Where to put the "read more" link: either at the end of the last paragraph, or on a new line by itself
 
 == Installation ==
 
