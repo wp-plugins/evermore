@@ -2,7 +2,7 @@
 Contributors: bennettmcelwee
 Tags: extract,more,abbreviate,short
 Requires at least: 1.5
-Tested up to: 2.8.4
+Tested up to: 3.0
 Stable tag: 2.3
 
 Evermore automatically abbreviates all posts when they appear on a multiple-post page such as the main blog page.
@@ -29,7 +29,6 @@ To change the length of the preview that Evermore creates, log in to your WordPr
 
 == Frequently Asked Questions ==
 
-
 = What is this good for? =
 
 The main page of a blog can often be too full. By default, WordPress displays the last ten posts on the main page, so viewers have to do a lot of scrolling to see if there's something interesting. With Evermore, all posts of the main page are abbreviated down to the first paragraph, so visitors can easily scan  your posts, find something interesting, and become hooked.
@@ -45,3 +44,12 @@ Just go to your WordPress Admin screen and disable the Evermore plugin. Everythi
 = Why not just add &lt;!--more--&gt; to my posts? =
 
 You can manually add &lt;!--more--&gt; to all your posts. This has exactly the same effect as Evermore. But with Evermore, you can turn the abbreviations on or off with a few clicks just by enabling or disabling the plugin. With the manual way, you have to manually go in and edit each post.
+
+== Changelog ==
+
+= 2.3.1 =
+* Clarified options page
+* Updated to be compatible with WordPress 3
+
+= 2.3 =
+* Updated to be compatible with WordPress 2.7

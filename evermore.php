@@ -3,13 +3,13 @@
 Plugin Name: Evermore
 Plugin URI: http://www.thunderguy.com/semicolon/wordpress/evermore-wordpress-plugin/
 Description: Abbreviate all posts when viewed on multiple post pages. This makes all posts behave as if there is a "&lt;!--more--&gt;" at an appropriate spot inside the content.
-Version: 2.3
+Version: 2.3.1
 Author: Bennett McElwee
 Author URI: http://www.thunderguy.com/semicolon/
 
 $Revision$
 
-Copyright (C) 2005-09 Bennett McElwee
+Copyright (C) 2005-10 Bennett McElwee
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -50,7 +50,7 @@ If you want to disable the plugin for any specific post, then include the codewo
 DEVELOPMENT NOTES
 
 All globals begin with "tguy_em_" (for Thunderguy Evermore)
-Tested with PHP 4.4.x, WordPress 1.5 to 2.7.1.
+Tested with PHP 4.4.x, WordPress 1.5 to 3.0b1.
 */
 
 if (!is_plugin_page()) :
@@ -126,7 +126,7 @@ function tguy_em_addmore($post_content) {
 		}
 	}
 	// No "more" was added. If the request includes the magic word, then add diagnostic info in a comment at the end of the post
-	if ($_GET['evermore_diagnostics']) {
+	if (array_key_exists('evermore_diagnostics', $_GET)) {
 		return $post_content . "<!--\n" . htmlspecialchars(tguy_em_get_diagnostics($post_content, $options)) . "\n-->";
 	}
 	return $post_content;
@@ -174,10 +174,10 @@ Reason [$diagnostic_reason]
 }
 
 function tguy_em_add_admin_pages() {
-	add_options_page('Evermore', 'Evermore', 10, __FILE__, 'tguy_em_options_page');
+	add_options_page('Evermore', 'Evermore', 'manage_options', __FILE__, 'tguy_em_options_page');
 
 	// Create option in options database if not there already:
-	add_option('tguy_more_evermore', tguy_em_get_default_options(), 'Options for the Evermore plugin');
+	add_option('tguy_more_evermore', tguy_em_get_default_options());
 }
 
 function tguy_em_get_default_options() {
@@ -208,7 +208,7 @@ function tguy_em_options_page() {
 	// Draw the Options page for the plugin.
 	$options = get_option('tguy_more_evermore');
 
-	$action_url = $_SERVER[PHP_SELF] . '?page=' . basename(__FILE__);
+	$action_url = $_SERVER['PHP_SELF'] . '?page=' . basename(__FILE__);
 ?>
 	<div class='wrap'>
 		<h2>Evermore</h2>
@@ -228,7 +228,7 @@ function tguy_em_options_page() {
 			<ul>
 				<li>
 				<label for="em_paras_to_skip">
-					Create previews containing the first
+					Previews contain the first
 					<input type="text" id="em_paras_to_skip" name="em_paras_to_skip"
 						size="2" maxlength="3"
 						value="<?php echo $options['em_paras_to_skip']; ?>" />
@@ -237,7 +237,7 @@ function tguy_em_options_page() {
 				</li>
 				<li>
 				<label for="em_min_chars_to_skip">
-					Ensure the preview is at least
+					Previews are at least
 					<input type="text" id="em_min_chars_to_skip" name="em_min_chars_to_skip"
 						size="4" maxlength="4"
 						value="<?php echo $options['em_min_chars_to_skip']; ?>" />
@@ -245,12 +245,11 @@ function tguy_em_options_page() {
 				</label>
 				</li>
 				<li>
-				Add a "read more" link to the full post<br />
 				<label for="em_link_on_new_para">
 					<input type="checkbox" id="em_link_on_new_para" name="em_link_on_new_para" <?php echo ($options['em_link_on_new_para']==true?"checked=\"checked\"":"") ?> />
-					Show the "Read more" link on a line by itself
-				</label><br />
-					Note that the actual text appearing on the link depends on your WordPress theme.
+					Show the "Read more" link on a line by itself.
+					<em>The link may say something other than "Read more", depending on your WordPress theme.</em>
+				</label>
 				</li>
 			</ul>
 			<script type="text/javascript">
