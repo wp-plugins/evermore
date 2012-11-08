@@ -3,13 +3,13 @@
 Plugin Name: Evermore
 Plugin URI: http://www.thunderguy.com/semicolon/wordpress/evermore-wordpress-plugin/
 Description: Abbreviate all posts when viewed on multiple post pages. This makes all posts behave as if there is a "&lt;!--more--&gt;" at an appropriate spot inside the content.
-Version: 2.3.1
+Version: 2.3.2
 Author: Bennett McElwee
 Author URI: http://www.thunderguy.com/semicolon/
 
 $Revision$
 
-Copyright (C) 2005-10 Bennett McElwee
+Copyright (C) 2005-12 Bennett McElwee
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -50,7 +50,6 @@ If you want to disable the plugin for any specific post, then include the codewo
 DEVELOPMENT NOTES
 
 All globals begin with "tguy_em_" (for Thunderguy Evermore)
-Tested with PHP 4.4.x, WordPress 1.5 to 3.0b1.
 */
 
 if (!is_plugin_page()) :
