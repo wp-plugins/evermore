@@ -1,8 +1,8 @@
 === Evermore ===
 Contributors: bennettmcelwee
-Tags: extract,more,abbreviate,short
-Requires at least: 1.5
-Tested up to: 3.4.2
+Tags: extract,more,abbreviate,short,preview,teaser
+Requires at least: 3.0
+Tested up to: 4.3
 Stable tag: 2.3.2
 
 Evermore automatically abbreviates all posts when they appear on a multiple-post page such as the main blog page.
@@ -46,6 +46,9 @@ Just go to your WordPress Admin screen and disable the Evermore plugin. Everythi
 You can manually add &lt;!--more--&gt; to all your posts. This has exactly the same effect as Evermore. But with Evermore, you can turn the abbreviations on or off with a few clicks just by enabling or disabling the plugin. With the manual way, you have to go in and edit each individual post.
 
 == Changelog ==
+
+= 2.4 =
+* Improve compatibility with current version of WordPress.
 
 = 2.3.2 =
 * Test with latest WP.
